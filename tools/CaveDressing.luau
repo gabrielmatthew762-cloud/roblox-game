@@ -272,6 +272,16 @@ local function undo(digSite)
 	print(`Undo: {restored} parts back to their original material, detail blocks removed`)
 end
 
+-- a misspelled material must stop the script before anything changes, not halfway through
+for themeName, theme in THEMES do
+	for _, materialName in { theme.material, theme.accent.material } do
+		local valid = pcall(function()
+			return Enum.Material[materialName]
+		end)
+		assert(valid, `CaveDressing: Theme {themeName} uses unknown material "{materialName}", nothing changed`)
+	end
+end
+
 local digSite = workspace:FindFirstChild("DigSite")
 if not digSite then
 	warn("CaveDressing: Workspace.DigSite not found, nothing done")
