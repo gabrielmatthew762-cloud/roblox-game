@@ -22,6 +22,8 @@ Rojo turns files into instances based on their names:
 
 The `.gitkeep` files only keep the empty folders in git. Rojo ignores them, and you can delete them once a folder has real files.
 
+`tools/` holds one-off Studio tools, such as `CaveDressing.luau`. Rojo doesn't sync them into the game. You run them by pasting them into Studio's Command Bar, and each one explains its settings at the top.
+
 ## Connecting to Roblox Studio
 
 1. **Install Rojo 7.** Use one of these:
